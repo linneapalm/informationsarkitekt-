@@ -1,48 +1,255 @@
-<html lang="en" xml:lang="en">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>
-                    
-                   Informationsarkitekt
-                </title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link rel="stylesheet" href="assets/css/main.css">
-      <link rel="stylesheet" href="assets/css/desktop.css">
-   </head>
-   <body>
-      <header>
-         <h1>Informationsarkitekt</h1>
-      </header>
-      <nav id="sitenav"><a href="index.html">Hem</a> |
-         
-         <a href="jkpg.html">Jönköping</a> |
-         <a href="om.html">Om</a> |
-         </nav>
-      <br>
-      <br>
-     
-      <p>
-         
-         
-      
-      </p>
-      <div class="motiv">
-        
-         <p>
-            Processtöd i utveckling av digitalisering
-         </p>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
 
-      
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Introduktion till SKOS</title>
+  <meta name="description" content="Introduktion till SKOS" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Introduktion till SKOS" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduktion till SKOS" />
+  
+  
+  
+
+<meta name="author" content="Mikael Gunnarsson" />
+<meta name="author" content="Maria Idebrant" />
+<meta name="author" content="Björn Ekström" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="skos-som-xml-tillämpning.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="skos-introduktionsövningar.html"><a href="skos-introduktionsövningar.html"><i class="fa fa-check"></i><b>1</b> SKOS - Introduktionsövningar</a></li>
+<li class="chapter" data-level="2" data-path="skos-som-xml-tillämpning.html"><a href="skos-som-xml-tillämpning.html"><i class="fa fa-check"></i><b>2</b> SKOS som XML-tillämpning</a><ul>
+<li class="chapter" data-level="2.1" data-path="skos-som-xml-tillämpning.html"><a href="skos-som-xml-tillämpning.html#xsl--och-dtd-filer"><i class="fa fa-check"></i><b>2.1</b> XSL- och DTD-filer</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="skos-som-xml-tillämpning.html"><a href="skos-som-xml-tillämpning.html#hänvisning-till-xsl"><i class="fa fa-check"></i><b>2.1.1</b> Hänvisning till XSL</a></li>
+<li class="chapter" data-level="2.1.2" data-path="skos-som-xml-tillämpning.html"><a href="skos-som-xml-tillämpning.html#hänvisning-till-dtd"><i class="fa fa-check"></i><b>2.1.2</b> Hänvisning till DTD</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="skos-som-xml-tillämpning.html"><a href="skos-som-xml-tillämpning.html#giltig-skos-och-validering"><i class="fa fa-check"></i><b>2.2</b> Giltig SKOS och validering</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="skos-som-xml-tillämpning.html"><a href="skos-som-xml-tillämpning.html#validering-i-oxygen"><i class="fa fa-check"></i><b>2.2.1</b> Validering i Oxygen</a></li>
+<li class="chapter" data-level="2.2.2" data-path="skos-som-xml-tillämpning.html"><a href="skos-som-xml-tillämpning.html#validering-i-editix"><i class="fa fa-check"></i><b>2.2.2</b> Validering i EditiX</a></li>
+<li class="chapter" data-level="2.2.3" data-path="skos-som-xml-tillämpning.html"><a href="skos-som-xml-tillämpning.html#validering-i-xmlspear"><i class="fa fa-check"></i><b>2.2.3</b> Validering i XMLSpear</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="koncept.html"><a href="koncept.html"><i class="fa fa-check"></i><b>3</b> Koncept</a></li>
+<li class="chapter" data-level="4" data-path="konceptens-föredragna-namn-och-synonymer.html"><a href="konceptens-föredragna-namn-och-synonymer.html"><i class="fa fa-check"></i><b>4</b> Konceptens föredragna namn och synonymer</a></li>
+<li class="chapter" data-level="5" data-path="semantiska-relationer.html"><a href="semantiska-relationer.html"><i class="fa fa-check"></i><b>5</b> Semantiska relationer</a><ul>
+<li class="chapter" data-level="5.1" data-path="semantiska-relationer.html"><a href="semantiska-relationer.html#bredare-relation-broader"><i class="fa fa-check"></i><b>5.1</b> Bredare relation: <code>broader</code></a></li>
+<li class="chapter" data-level="5.2" data-path="semantiska-relationer.html"><a href="semantiska-relationer.html#snävare-relation-narrower"><i class="fa fa-check"></i><b>5.2</b> Snävare relation: <code>narrower</code></a></li>
+<li class="chapter" data-level="5.3" data-path="semantiska-relationer.html"><a href="semantiska-relationer.html#associativa-relationer-related"><i class="fa fa-check"></i><b>5.3</b> Associativa relationer: <code>related</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="definitioner-med-mera.html"><a href="definitioner-med-mera.html"><i class="fa fa-check"></i><b>6</b> Definitioner med mera</a></li>
+<li class="chapter" data-level="7" data-path="beskriv-din-vokabulär.html"><a href="beskriv-din-vokabulär.html"><i class="fa fa-check"></i><b>7</b> Beskriv din vokabulär</a></li>
+<li class="chapter" data-level="8" data-path="se-på-filen-i-webbläsaren.html"><a href="se-på-filen-i-webbläsaren.html"><i class="fa fa-check"></i><b>8</b> Se på filen i webbläsaren</a><ul>
+<li class="chapter" data-level="8.1" data-path="se-på-filen-i-webbläsaren.html"><a href="se-på-filen-i-webbläsaren.html#visualisera-i-alfabetisk-listform"><i class="fa fa-check"></i><b>8.1</b> Visualisera i alfabetisk listform</a></li>
+<li class="chapter" data-level="8.2" data-path="se-på-filen-i-webbläsaren.html"><a href="se-på-filen-i-webbläsaren.html#visualisera-i-hierarkisk-trädform"><i class="fa fa-check"></i><b>8.2</b> Visualisera i hierarkisk trädform</a></li>
+<li class="chapter" data-level="8.3" data-path="se-på-filen-i-webbläsaren.html"><a href="se-på-filen-i-webbläsaren.html#använd-båda-stilmallarna"><i class="fa fa-check"></i><b>8.3</b> Använd båda stilmallarna</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="avslutningsvis.html"><a href="avslutningsvis.html"><i class="fa fa-check"></i><b>9</b> Avslutningsvis</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduktion till SKOS</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Introduktion till SKOS</h1>
+<p class="author"><em>Mikael Gunnarsson</em></p>
+<p class="author"><em>Maria Idebrant</em></p>
+<p class="author"><em>Björn Ekström</em></p>
+</div>
+<div id="skos---introduktionsövningar" class="section level1">
+<h1><span class="header-section-number">1</span> SKOS - Introduktionsövningar</h1>
+<p>Dessa övningar syftar till att göra dig bekant med Simple Knowledge
+Organization System (SKOS). SKOS är en XML-tillämpning avsedd för att
+ge upphov till kontrollerade vokabulärer av den typ som
+biblioteksverksamheten känner som tesaurer (tesauri, thesaurer).</p>
+<p>SKOS är
+mer begränsad än till exempel OWL och XTM, i den meningen att de
+associationer som kan etableras mellan olika koncept är mindre
+nyanserade och begränsade till möjligheten att definiera över- och
+underordning, samt till mer eller mindre obestämda associationer utan
+hierarkiska implikationer. Fördelen är att SKOS är en relativt enkel
+tillämpning för att närma sig kontrollerade vokabulärer.</p>
+<p>Övningarna bygger på att du i tur och ordning läser och kodar på egen hand
+i någon XML-editor, till exempel <a href="https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html">Oxygen</a>, <a href="http://editix.com/">EditiX</a> eller <a href="http://www.donkeydevelopment.com/">XMLSpear</a>. För varje steg
+finns en instruktion samt exemplifierande kod.</p>
+<p>Läs instruktionerna noggrant och kopiera relevant kod från exemplen till din egen fil.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
       </div>
-      <footer>
-         <div class="row" id="footer">
-            <div class="col-sm copyright">
-               <div class="copyright_logos"><a href="https://creativecommons.org/publicdomain/mark/1.0/"><img src="assets/img/logos/cc.xlarge.png" class="copyright_logo" alt="Creative Commons License"><img src="assets/img/logos/pd.xlarge.png" class="copyright_logo" alt="PDM 1.0 Deed "></a></div>
-               <div class="copyright_text">
-                  2025 Linnéa Palmqvist
-               </div>
-            </div>
-         </div>
-      </footer>
-   </body>
+
+<a href="skos-som-xml-tillämpning.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
 </html>
